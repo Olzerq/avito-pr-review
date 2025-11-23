@@ -1,0 +1,33 @@
+run:
+  timeout: 3m
+  tests: true
+
+linters:
+  enable:
+    - govet
+    - staticcheck
+    - gosimple
+    - ineffassign
+    - errcheck
+    - gofumpt
+    - revive
+    - misspell
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+  exclude-rules:
+    - linters: [revive]
+      text: "exported .* should have comment"
+
+    - linters: [errcheck]
+      text: "json.NewEncoder" 
+
+linters-settings:
+  gofumpt:
+    extra-rules: true
+
+  revive:
+    ignore-generated-header: true
